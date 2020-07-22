@@ -4,9 +4,9 @@ const mysql = require('mysql');
 
 const app = express();
 
-const port = process.env.PORT || 4774
+const port = process.env.PORT || 3000
 app.listen(port, () => {
-    console.log("Listening on port 4774");
+    console.log("Listening on port 3000");
 })
 
 app.use((req, res, next) => {
@@ -32,13 +32,14 @@ app.get('/api/users', (req, res) => {
 });
 
 app.get('/api/users/:email/:password', (req, res) => {
-    // LOG TIME
+
+    // Log Time
     var datetime = new Date();
     console.log("\n"+datetime);
     console.log("Incoming new GET HTTP request for LOGIN");
     console.log(req.body);
 
-    // VALIDATE
+    // Validation
     const {error} = validateUser(req.params);
     if (error) {
         console.log('Validation error');
@@ -52,9 +53,9 @@ app.get('/api/users/:email/:password', (req, res) => {
     }
     console.log('Validation success and accepted');
 
-    // CHECK IF THE EMAIL AND PASSWORD CORRECT
+    // Email and Password Confirmation
     console.log('Check existing email: '+req.params.email+' and password: '+req.params.password);
-    const check_user = users.find( u => u.email === req.params.email && u.password === req.params.email );
+    const check_user = users.find( u => u.email === req.params.email && u.password === req.params.password );
     if (!check_user) {
         var error_message = 'Invalid login detail. Email or password is not correct.';
         console.log(error_message);
@@ -68,22 +69,21 @@ app.get('/api/users/:email/:password', (req, res) => {
     }
 
     var jsonRespond = {
-        result: user,
         message: "Login success"
     }
     return res.json(jsonRespond);
 });
 
-//REGISTER
+//Register
 app.post('/api/users', (req, res) => {
 
-    // LOG TIME
+    // Log Time
     var datetime = new Date();
     console.log("\n"+datetime);
     console.log("Incoming new POST HTTP request");
     console.log(req.body);
 
-    // VALIDATE
+    // Validation
     const {error} = validateUser(req.body);
     if (error) {
         console.log('Validation error');
@@ -97,7 +97,7 @@ app.post('/api/users', (req, res) => {
     }
     console.log('Validation success and accepted');
 
-    // CHECK IF THE EMAIL ALREADY EXISTS
+    // Email Confirmation
     console.log('Check existing email: '+req.body.email);
     const check_user = users.find( u => u.email === req.body.email );
     if (check_user) {
