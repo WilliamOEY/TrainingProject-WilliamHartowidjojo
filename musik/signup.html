@@ -22,22 +22,22 @@
 					<div id="registration_result" style="margin-bottom:15px;color:white;"></div> 
  
 					<div class="form-group"> 
-						<input id="regis-name" placeholder="Name" class="form-control rounded input-lg text-center no-border">
+						<input id="name" placeholder="Name" class="form-control rounded input-lg text-center no-border">
 					</div> 
 					
 					<div class="form-group"> 
-						<input id="regis-email" type="email" placeholder="Email" class="form-control rounded input-lg text-center no-border"> 
+						<input id="email" type="email" placeholder="Email" class="form-control rounded input-lg text-center no-border"> 
 					</div> 
 					
 					<div class="form-group"> 
-						<input id="regis-password" type="password" placeholder="Password" class="form-control rounded input-lg text-center no-border"> 
+						<input id="password" type="password" placeholder="Password" class="form-control rounded input-lg text-center no-border"> 
 					</div> 
 					<div class="checkbox i-checks m-b"> 
 						<label class="m-l"> <input type="checkbox" checked=""><i></i> Agree the <a href="#">terms and policy</a> 
 						</label> 
 					</div> 
 					
-					<button type="button" onclick="regis()"class="btn btn-lg btn-warning lt b-white b-2x btn-block btn-rounded">
+					<button type="button" onclick="registration()"class="btn btn-lg btn-warning lt b-white b-2x btn-block btn-rounded">
 						<i class="icon-arrow-right pull-right"></i>
 						<span class="m-r-n-lg">Sign Up</span>
 					</button> 
@@ -103,10 +103,10 @@
 		</script>
 		
 		<script>
-			function regis(){
-				regis_name = document.getElementById('regis-name').value;
-        		regis_email = document.getElementById('regis-email').value;
-       			regis_password = document.getElementById('regis-password').value;
+			function registration(){
+				regis_name = document.getElementById('name').value;
+        		regis_email = document.getElementById('email').value;
+       			regis_password = document.getElementById('password').value;
 
 				var url = "http://localhost:3000/api/users"
             	let data = {};
