@@ -4,6 +4,8 @@ const mysql = require('mysql');
 
 const app = express();
 
+app.use(express.json());
+
 const port = process.env.PORT || 3000
 app.listen(port, () => {
     console.log("Listening on port 3000");
@@ -31,6 +33,7 @@ app.get('/api/users', (req, res) => {
 
 });
 
+// Login
 app.get('/api/users/:email/:password', (req, res) => {
 
     // Log Time
