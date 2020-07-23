@@ -100,8 +100,8 @@
 		
 		<script>
 			function login(){
-				login_email = document.getElementById("login-email").value;
-           		login_password = document.getElementById("login-password").value;
+				let login_email = document.getElementById("login-email").value;
+           		let login_password = document.getElementById("login-password").value;
 				var url = "localhost:3000/api/users"+ login_email+ "/"+ login_password;
 				
             	var data = {};

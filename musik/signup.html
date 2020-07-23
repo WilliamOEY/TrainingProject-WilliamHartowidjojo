@@ -102,11 +102,11 @@
 		
 		<script>
 			function regis(){
-				regis_name = document.getElementById('regis-name').value;
-        		regis_email = document.getElementById('regis-email').value;
-       			regis_password = document.getElementById('regis-password').value;
+				let regis_name = document.getElementById('regis-name').value;
+        		let regis_email = document.getElementById('regis-email').value;
+       			let regis_password = document.getElementById('regis-password').value;
 
-				var url = "http://localhost:3000/api/users"
+				var url = "http://localhost:3000/api/users";
             	let data = {};
             	data.name = regis_name;
             	data.email = regis_email;
