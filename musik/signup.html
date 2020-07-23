@@ -35,9 +35,9 @@
 						</label> 
 					</div> 
 					
-					<button type="submit" class="btn btn-lg btn-warning lt b-white b-2x btn-block btn-rounded">
+					<button type="button" onclick="regis()"class="btn btn-lg btn-warning lt b-white b-2x btn-block btn-rounded">
 						<i class="icon-arrow-right pull-right"></i>
-						<span class="m-r-n-lg">Sign up</span>
+						<span class="m-r-n-lg">Sign Up</span>
 					</button> 
 					
 					<div class="line line-dashed"></div> 
@@ -106,8 +106,8 @@
         		regis_email = document.getElementById('regis-email').value;
        			regis_password = document.getElementById('regis-password').value;
 
-				var url = "http://localhost:3000/api/users/"
-            	var data = {};
+				var url = "http://localhost:3000/api/users"
+            	let data = {};
             	data.name = regis_name;
             	data.email = regis_email;
             	data.password = regis_password;

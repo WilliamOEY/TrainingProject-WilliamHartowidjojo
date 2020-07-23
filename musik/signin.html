@@ -33,10 +33,11 @@
 						<div class="form-group"> <input type="password" placeholder="Password" class="form-control rounded input-lg text-center no-border"> 
 						</div> 
 						
-						<button type="submit" class="btn btn-lg btn-warning lt b-white b-2x btn-block btn-rounded">
+						<button type="button" onclick = "login();" class="btn btn-lg btn-warning lt b-white b-2x btn-block btn-rounded">
 							<i class="icon-arrow-right pull-right"></i>
 							<span class="m-r-n-lg">Sign in</span>
 						</button> 
+						
 						
 						<div class="text-center m-t m-b">
 							<a href="#"><small>Forgot password?</small></a>
@@ -101,8 +102,8 @@
 			function login(){
 				login_email = document.getElementById("login-email").value;
            		login_password = document.getElementById("login-password").value;
-            	var url = "http://localhost:3000/api/users/:email/:password";
-
+				var url = "localhost:3000/api/users"+ login_email+ "/"+ login_password;
+				
             	var data = {};
             	data.email = login_email;
             	data.password = login_password;

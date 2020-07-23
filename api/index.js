@@ -137,8 +137,6 @@ function validateUser(user) {
 }
 
 // mySQL
-var mysql = require('mysql');
-
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -146,21 +144,11 @@ var con = mysql.createConnection({
   database: "nodejs_project"
 });
 
-con.connect(function(err) {
+/*con.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
     con.query("CREATE DATABASE users", function (err, result) {
       if (err) throw err;
       console.log("Database created");
     });
-  });
-
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-  var sql = "INSERT INTO users (name, email, password) VALUES ('Bob', 'bobtheblober@theblobber.com', 'bob69420')";
-  con.query(sql, function (err, result) {
-    if (err) throw err;
-    console.log("User inserted");
-  });
-}); 
+  });*/
