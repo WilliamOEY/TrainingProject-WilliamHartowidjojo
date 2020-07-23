@@ -135,3 +135,23 @@ function validateUser(user) {
 
     return schema.validate(user);
 }
+
+// mySQL
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "Williamoey12$",
+  database: "nodejs_project"
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+  var sql = "INSERT INTO users (name, email, password) VALUES ('Bob', 'bobtheblober@theblobber.com', 'bob69420')";
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("User inserted");
+  });
+}); 
