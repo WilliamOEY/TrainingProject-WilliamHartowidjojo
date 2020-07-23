@@ -18,17 +18,19 @@
 				<a class="navbar-brand block" href="index.html"><span class="h1 font-bold">Musik</span></a> 
 				
 				<section class="m-b-lg"> 
-					<header class="wrapper text-center"> <strong>Sign up to find interesting thing</strong> </header> <form action="index.html"> 
+					<header class="wrapper text-center"> <strong>Sign up to find interesting thing</strong> </header> <form action="index.html">
+					<div id="registration_result" style="margin-bottom:15px;color:white;"></div> 
+ 
 					<div class="form-group"> 
-						<input placeholder="Name" class="form-control rounded input-lg text-center no-border">
+						<input id="regis-name" placeholder="Name" class="form-control rounded input-lg text-center no-border">
 					</div> 
 					
 					<div class="form-group"> 
-						<input type="email" placeholder="Email" class="form-control rounded input-lg text-center no-border"> 
+						<input id="regis-email" type="email" placeholder="Email" class="form-control rounded input-lg text-center no-border"> 
 					</div> 
 					
 					<div class="form-group"> 
-						<input type="password" placeholder="Password" class="form-control rounded input-lg text-center no-border"> 
+						<input id="regis-password" type="password" placeholder="Password" class="form-control rounded input-lg text-center no-border"> 
 					</div> 
 					<div class="checkbox i-checks m-b"> 
 						<label class="m-l"> <input type="checkbox" checked=""><i></i> Agree the <a href="#">terms and policy</a> 
@@ -102,11 +104,11 @@
 		
 		<script>
 			function regis(){
-				let regis_name = document.getElementById('regis-name').value;
-        		let regis_email = document.getElementById('regis-email').value;
-       			let regis_password = document.getElementById('regis-password').value;
+				regis_name = document.getElementById('regis-name').value;
+        		regis_email = document.getElementById('regis-email').value;
+       			regis_password = document.getElementById('regis-password').value;
 
-				var url = "http://localhost:3000/api/users";
+				var url = "http://localhost:3000/api/users"
             	let data = {};
             	data.name = regis_name;
             	data.email = regis_email;

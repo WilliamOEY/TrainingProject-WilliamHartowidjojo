@@ -23,14 +23,15 @@
 				
 				<section class="m-b-lg"> 
 					<header class="wrapper text-center"> 
-						<strong>Sign in to get in touch</strong> 
+						<strong>Sign in to get in touch</strong>
+						<div id="registration_result" style="margin-bottom:15px;color:white;"></div> 
 					</header> 
 					
 					<form action="index.html"> 
-						<div class="form-group"> <input type="email" placeholder="Email" class="form-control rounded input-lg text-center no-border"> 
+						<div class="form-group"> <input id="login-email" type="email" placeholder="Email" class="form-control rounded input-lg text-center no-border"> 
 						</div> 
 						
-						<div class="form-group"> <input type="password" placeholder="Password" class="form-control rounded input-lg text-center no-border"> 
+						<div class="form-group"> <input id="login-password" type="password" placeholder="Password" class="form-control rounded input-lg text-center no-border"> 
 						</div> 
 						
 						<button type="button" onclick = "login();" class="btn btn-lg btn-warning lt b-white b-2x btn-block btn-rounded">
@@ -100,9 +101,10 @@
 		
 		<script>
 			function login(){
-				let login_email = document.getElementById("login-email").value;
-           		let login_password = document.getElementById("login-password").value;
-				var url = "localhost:3000/api/users"+ login_email+ "/"+ login_password;
+				login_email = document.getElementById("login-email").value;
+           		login_password = document.getElementById("login-password").value;
+				var url = "http://localhost:3000/api/users/"+login_email+"/"+login_password;
+				//var url = "localhost:3000/api/users/"+ login_email+ "/"+ login_password;
 				
             	var data = {};
             	data.email = login_email;

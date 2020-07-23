@@ -6,10 +6,10 @@ const app = express();
 
 app.use(express.json());
 
-const port = process.env.PORT || 3000
+/*const port = process.env.PORT || 3000
 app.listen(port, () => {
     console.log("Listening on port 3000");
-})
+})*/
 
 app.use((req, res, next) => {
     res.set({
@@ -40,7 +40,7 @@ app.get('/api/users/:email/:password', (req, res) => {
     var datetime = new Date();
     console.log("\n"+datetime);
     console.log("Incoming new GET HTTP request for LOGIN");
-    console.log(req.body);
+    console.log(req.params);
 
     // Validation
     const {error} = validateUser(req.params);
@@ -71,10 +71,13 @@ app.get('/api/users/:email/:password', (req, res) => {
         return res.status(404).json(jsonRespond);
     }
 
+    console.log('Email ' +req.params.email+ ' sucessfully login.\n');
     var jsonRespond = {
+        result: users,
         message: "Login success"
     }
-    return res.json(jsonRespond);
+    return res.status(200).json(jsonRespond);
+    //return res.json(jsonRespond);
 });
 
 //Register
@@ -123,8 +126,19 @@ app.post('/api/users', (req, res) => {
     };
     
     users.push(user);
-    return res.json(user);
+
+    var jsonRespond = {
+        result: user,
+        message: "Regis success."
+    }
+    return res.status(200).json(jsonRespond);
+    //return res.json(user);
 });
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
+})
 
 function validateUser(user) {
     const schema = Joi.object({
