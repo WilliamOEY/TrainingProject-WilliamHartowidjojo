@@ -147,6 +147,15 @@ var con = mysql.createConnection({
 });
 
 con.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+    con.query("CREATE DATABASE users", function (err, result) {
+      if (err) throw err;
+      console.log("Database created");
+    });
+  });
+
+con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
   var sql = "INSERT INTO users (name, email, password) VALUES ('Bob', 'bobtheblober@theblobber.com', 'bob69420')";

@@ -99,9 +99,30 @@
 		
 		<script>
 			function login(){
-				var url = "http://localhost:3000/api/users/:email/:password"
+				login_email = document.getElementById("login-email").value;
+           		login_password = document.getElementById("login-password").value;
+            	var url = "http://localhost:3000/api/users/:email/:password";
+
+            	var data = {};
+            	data.email = login_email;
+            	data.password = login_password;
+            	var json = JSON.stringify(data);
+
+            	var xhr = new XMLHttpRequest();
+            	xhr.open('GET', url, true);
+            	xhr.onload = function () {
+	                console.log(xhr.responseText);
+
+    	            var respond = JSON.parse(xhr.responseText);
+        	        if (xhr.readyState == 4 && xhr.status == "200") {
+            	        document.getElementById('registration_result').innerHTML = respond.message;
+               		} else {
+               	    console.error(respond);
+                    document.getElementById('registration_result').innerHTML = respond.message;
+               		}
+            	}
+        		xhr.send(null);
 			}
 		</script>
-		
 	</body>
 </html>
