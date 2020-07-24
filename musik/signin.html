@@ -118,10 +118,11 @@
 
     	            var respond = JSON.parse(xhr.responseText);
         	        if (xhr.readyState == 4 && xhr.status == "200") {
-            	        document.getElementById('registration_result').innerHTML = respond.message;
+						document.getElementById('login_result').innerHTML = respond.message;
+						window.location.assign("index.html");
                		} else {
                	    console.error(respond);
-                    document.getElementById('registration_result').innerHTML = respond.message;
+                    document.getElementById('login_result').innerHTML = respond.message;
                		}
             	}
         		xhr.send(null);

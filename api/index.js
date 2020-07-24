@@ -21,7 +21,7 @@ app.use((req, res, next) => {
 })
 
 const users = [
-    {id: 1, name: 'Bob', email: 'bobtheblober@theblobber.com', password: 'bob69420'}
+    {id: 1, name: 'Bob', email: 'bobtheblober@theblobber.com', password: 'bob3333'}
 ]
 
 app.get('/api/users', (req, res) => {
@@ -77,7 +77,6 @@ app.get('/api/users/:email/:password', (req, res) => {
         message: "Login success"
     }
     return res.status(200).json(jsonRespond);
-    //return res.json(jsonRespond);
 });
 
 //Register
@@ -129,7 +128,7 @@ app.post('/api/users', (req, res) => {
 
     var jsonRespond = {
         result: user,
-        message: "Regis success."
+        message: "Registration success."
     }
     return res.status(200).json(jsonRespond);
     //return res.json(user);
