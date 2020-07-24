@@ -103,10 +103,9 @@
 			function login(){
 				login_email = document.getElementById("email").value;
            		login_password = document.getElementById("password").value;
-				var url = "http://localhost:3000/api/users/"+login_email+"/"+login_password;
-				//var url = "localhost:3000/api/users/"+ login_email+ "/"+ login_password;
 				
-            	var data = {};
+				var url = "http://localhost:3000/api/users/"+login_email+"/"+login_password;
+            	let data = {};
             	data.email = login_email;
             	data.password = login_password;
             	var json = JSON.stringify(data);
@@ -118,11 +117,11 @@
 
     	            var respond = JSON.parse(xhr.responseText);
         	        if (xhr.readyState == 4 && xhr.status == "200") {
-						document.getElementById('login_result').innerHTML = respond.message;
+						document.getElementById('registration_result').innerHTML = respond.message;
 						window.location.assign("index.html");
                		} else {
                	    console.error(respond);
-                    document.getElementById('login_result').innerHTML = respond.message;
+                    document.getElementById('registration_result').innerHTML = respond.message;
                		}
             	}
         		xhr.send(null);
